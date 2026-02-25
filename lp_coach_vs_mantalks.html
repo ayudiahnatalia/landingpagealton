@@ -1,0 +1,1340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Finally. A Coach Built for Black Men. Not Another Guru Program.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black:     #0A0A0A;
+      --dark:      #111111;
+      --dark2:     #1A1A1A;
+      --dark3:     #222222;
+      --gold:      #C8963E;
+      --gold2:     #E2B46A;
+      --gold3:     #F5D89A;
+      --white:     #FFFFFF;
+      --offwhite:  #F5F2EC;
+      --cream:     #FBF8F2;
+      --gray:      #888888;
+      --lightgray: #CCCCCC;
+      --red:       #C0392B;
+      --red2:      #E74C3C;
+      --green:     #1E7E5A;
+      --radius:    8px;
+      --shadow:    0 8px 48px rgba(0,0,0,0.4);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--black);
+      color: var(--white);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── UTILS ─────────────────────────────────────── */
+    .gold      { color: var(--gold); }
+    .gold2     { color: var(--gold2); }
+    .red       { color: var(--red2); }
+    .container { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+    .center    { text-align: center; }
+    .serif     { font-family: 'Playfair Display', serif; }
+
+    /* ── NAV ───────────────────────────────────────── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(10,10,10,0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(200,150,62,0.15);
+      height: 64px;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 40px;
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: 0.03em;
+    }
+    .nav-logo span { color: var(--gold); }
+    .nav-cta {
+      background: var(--gold);
+      color: var(--black);
+      border: none;
+      padding: 10px 22px;
+      border-radius: var(--radius);
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .nav-cta:hover { background: var(--gold2); }
+
+    /* ── WARNING BANNER ────────────────────────────── */
+    .warning-banner {
+      background: var(--red);
+      padding: 12px 24px;
+      text-align: center;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      margin-top: 64px;
+    }
+    .warning-banner a { color: var(--white); text-decoration: underline; }
+
+    /* ── HERO ──────────────────────────────────────── */
+    .hero {
+      min-height: 92vh;
+      display: flex; align-items: center;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,0.85) 0%, rgba(10,10,10,0.97) 100%),
+        radial-gradient(ellipse at 60% 40%, rgba(200,150,62,0.12) 0%, transparent 70%);
+      padding: 80px 24px 60px;
+    }
+    .hero-inner {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(200,150,62,0.12);
+      border: 1px solid rgba(200,150,62,0.3);
+      border-radius: 100px;
+      padding: 6px 16px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--gold2);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 28px;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(36px, 6vw, 64px);
+      font-weight: 700;
+      line-height: 1.12;
+      margin-bottom: 24px;
+      color: var(--white);
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+    .hero-sub {
+      font-size: clamp(16px, 2vw, 20px);
+      color: var(--lightgray);
+      max-width: 640px;
+      margin-bottom: 40px;
+      line-height: 1.7;
+    }
+    .hero-buttons {
+      display: flex; gap: 16px; flex-wrap: wrap;
+    }
+    .btn-primary {
+      background: var(--gold);
+      color: var(--black);
+      border: none;
+      padding: 16px 36px;
+      border-radius: var(--radius);
+      font-size: 15px;
+      font-weight: 800;
+      cursor: pointer;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-primary:hover { background: var(--gold2); transform: translateY(-2px); }
+    .btn-ghost {
+      background: transparent;
+      color: var(--white);
+      border: 1px solid rgba(255,255,255,0.25);
+      padding: 16px 36px;
+      border-radius: var(--radius);
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: border-color 0.2s;
+    }
+    .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+    .hero-proof {
+      margin-top: 48px;
+      padding-top: 32px;
+      border-top: 1px solid rgba(255,255,255,0.07);
+      display: flex; gap: 40px; flex-wrap: wrap;
+    }
+    .hero-stat strong {
+      display: block;
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--gold);
+      font-family: 'Playfair Display', serif;
+    }
+    .hero-stat span {
+      font-size: 13px;
+      color: var(--gray);
+    }
+
+    /* ── SECTION SHARED ────────────────────────────── */
+    section { padding: 80px 24px; }
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 14px;
+    }
+    h2.section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+    .section-body {
+      font-size: 16px;
+      color: var(--lightgray);
+      line-height: 1.75;
+    }
+
+    /* ── COMPLAINTS SECTION ────────────────────────── */
+    .complaints-section {
+      background: var(--dark);
+      border-top: 1px solid rgba(255,255,255,0.05);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .complaints-intro {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 56px;
+    }
+    .complaint-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-bottom: 48px;
+    }
+    .complaint-card {
+      background: var(--dark2);
+      border: 1px solid rgba(192,57,43,0.2);
+      border-left: 3px solid var(--red2);
+      border-radius: var(--radius);
+      padding: 24px;
+    }
+    .complaint-card .quote-mark {
+      font-size: 48px;
+      line-height: 1;
+      color: rgba(231,76,60,0.3);
+      font-family: 'Playfair Display', serif;
+      margin-bottom: 8px;
+    }
+    .complaint-card blockquote {
+      font-size: 14px;
+      line-height: 1.7;
+      color: #DDDDDD;
+      font-style: italic;
+      margin-bottom: 14px;
+    }
+    .complaint-card .source {
+      font-size: 11px;
+      color: var(--gray);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .complaint-card .amount {
+      display: inline-block;
+      background: rgba(231,76,60,0.15);
+      color: var(--red2);
+      font-size: 12px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 4px;
+      margin-bottom: 12px;
+    }
+    .complaints-disclaimer {
+      text-align: center;
+      font-size: 12px;
+      color: var(--gray);
+      max-width: 560px;
+      margin: 0 auto;
+    }
+    .complaints-disclaimer a { color: var(--gold); }
+
+    /* ── TRANSITION SECTION ─────────────────────────── */
+    .transition-section {
+      background: linear-gradient(135deg, rgba(200,150,62,0.08) 0%, transparent 60%);
+      text-align: center;
+    }
+    .transition-section .big-question {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(24px, 4vw, 40px);
+      font-style: italic;
+      color: var(--gold2);
+      margin-bottom: 24px;
+      line-height: 1.3;
+    }
+
+    /* ── PROBLEM SECTION ───────────────────────────── */
+    .problem-section {
+      background: var(--dark);
+    }
+    .problem-list {
+      margin: 32px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .problem-item {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .problem-icon {
+      flex-shrink: 0;
+      width: 32px; height: 32px;
+      background: rgba(231,76,60,0.12);
+      border: 1px solid rgba(231,76,60,0.25);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px;
+      margin-top: 2px;
+    }
+    .problem-text strong { color: var(--white); }
+    .problem-text p { font-size: 14px; color: var(--gray); margin-top: 2px; }
+
+    /* ── ABOUT SECTION ─────────────────────────────── */
+    .about-section {
+      background: var(--black);
+    }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    @media (max-width: 700px) {
+      .about-grid { grid-template-columns: 1fr; gap: 32px; }
+    }
+    .about-image-box {
+      background: var(--dark2);
+      border: 1px solid rgba(200,150,62,0.15);
+      border-radius: 12px;
+      aspect-ratio: 4/5;
+      display: flex; align-items: center; justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .about-image-box .placeholder-text {
+      text-align: center;
+      color: var(--gray);
+      font-size: 13px;
+      padding: 24px;
+    }
+    .about-image-box .placeholder-text strong {
+      display: block;
+      font-size: 15px;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+    .about-image-box::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 50% 30%, rgba(200,150,62,0.08), transparent 70%);
+    }
+    .about-content .coach-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+    .about-content .coach-title {
+      font-size: 13px;
+      color: var(--gold);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .about-content p {
+      font-size: 15px;
+      color: var(--lightgray);
+      line-height: 1.75;
+      margin-bottom: 16px;
+    }
+    .about-verse {
+      background: rgba(200,150,62,0.06);
+      border-left: 3px solid var(--gold);
+      padding: 16px 20px;
+      border-radius: 0 8px 8px 0;
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 15px;
+      color: var(--gold2);
+      margin-top: 24px;
+    }
+    .about-verse cite {
+      display: block;
+      font-style: normal;
+      font-size: 12px;
+      color: var(--gray);
+      margin-top: 8px;
+    }
+
+    /* ── DIFFERENCE SECTION ─────────────────────────── */
+    .difference-section {
+      background: var(--dark);
+    }
+    .diff-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+      margin-top: 48px;
+    }
+    .diff-card {
+      background: var(--dark2);
+      border: 1px solid rgba(200,150,62,0.15);
+      border-radius: 12px;
+      padding: 32px 28px;
+      position: relative;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .diff-card:hover {
+      border-color: rgba(200,150,62,0.4);
+      transform: translateY(-4px);
+    }
+    .diff-card .diff-icon {
+      font-size: 32px;
+      margin-bottom: 16px;
+    }
+    .diff-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+    .diff-card p {
+      font-size: 14px;
+      color: var(--lightgray);
+      line-height: 1.7;
+    }
+    .diff-card .vs-tag {
+      position: absolute; top: 20px; right: 20px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--green);
+      background: rgba(30,126,90,0.12);
+      border: 1px solid rgba(30,126,90,0.25);
+      padding: 3px 8px;
+      border-radius: 4px;
+    }
+
+    /* ── COMPARISON TABLE ──────────────────────────── */
+    .comparison-section {
+      background: var(--black);
+    }
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 40px;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .comparison-table thead tr {
+      background: var(--dark2);
+    }
+    .comparison-table th {
+      padding: 16px 20px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .comparison-table th:first-child { text-align: left; color: var(--gray); }
+    .comparison-table th.them { color: var(--red2); }
+    .comparison-table th.us   { color: var(--gold); }
+    .comparison-table tbody tr {
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      transition: background 0.15s;
+    }
+    .comparison-table tbody tr:hover { background: rgba(255,255,255,0.02); }
+    .comparison-table td {
+      padding: 14px 20px;
+      font-size: 14px;
+    }
+    .comparison-table td:first-child {
+      color: var(--lightgray);
+      font-weight: 500;
+    }
+    .comparison-table td.them {
+      color: var(--red2);
+      text-align: center;
+      font-size: 18px;
+    }
+    .comparison-table td.us {
+      color: var(--green);
+      text-align: center;
+      font-size: 18px;
+    }
+    .comparison-table td.us-text {
+      color: var(--gold2);
+      font-size: 13px;
+      text-align: center;
+    }
+    .comparison-table td.them-text {
+      color: #AA4444;
+      font-size: 13px;
+      text-align: center;
+    }
+
+    /* ── PROGRAM SECTION ───────────────────────────── */
+    .program-section {
+      background: var(--dark);
+    }
+    .program-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin-top: 48px;
+      position: relative;
+    }
+    .program-steps::before {
+      content: '';
+      position: absolute;
+      left: 27px; top: 40px; bottom: 40px;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--gold), rgba(200,150,62,0.1));
+    }
+    .program-step {
+      display: flex;
+      gap: 24px;
+      align-items: flex-start;
+      padding: 24px 0;
+    }
+    .step-num {
+      flex-shrink: 0;
+      width: 56px; height: 56px;
+      background: var(--gold);
+      color: var(--black);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px;
+      font-weight: 800;
+      font-family: 'Playfair Display', serif;
+      position: relative; z-index: 1;
+    }
+    .step-content h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+    .step-content p {
+      font-size: 14px;
+      color: var(--lightgray);
+      line-height: 1.7;
+    }
+    .step-week {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 4px;
+    }
+
+    /* ── TESTIMONIALS ──────────────────────────────── */
+    .testimonials-section {
+      background: var(--black);
+    }
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-top: 48px;
+    }
+    .testimonial-card {
+      background: var(--dark2);
+      border: 1px solid rgba(200,150,62,0.12);
+      border-radius: 12px;
+      padding: 28px 24px;
+    }
+    .testimonial-stars {
+      color: var(--gold);
+      font-size: 16px;
+      margin-bottom: 14px;
+    }
+    .testimonial-card blockquote {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 15px;
+      color: var(--offwhite);
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .testimonial-avatar {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: var(--dark3);
+      border: 2px solid var(--gold);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--gold);
+    }
+    .testimonial-name { font-size: 14px; font-weight: 600; color: var(--white); }
+    .testimonial-detail { font-size: 12px; color: var(--gray); }
+
+    /* ── OBJECTIONS ─────────────────────────────────── */
+    .objections-section {
+      background: var(--dark);
+    }
+    .faq-list {
+      margin-top: 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .faq-item {
+      background: var(--dark2);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .faq-q {
+      padding: 20px 24px;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--white);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+    .faq-q::after { content: '+'; font-size: 20px; color: var(--gold); flex-shrink: 0; }
+    .faq-a {
+      padding: 0 24px 20px;
+      font-size: 14px;
+      color: var(--lightgray);
+      line-height: 1.75;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      padding-top: 16px;
+    }
+
+    /* ── CTA SECTION ────────────────────────────────── */
+    .cta-section {
+      background:
+        linear-gradient(135deg, rgba(200,150,62,0.1) 0%, transparent 50%),
+        var(--black);
+      text-align: center;
+      padding: 100px 24px;
+      border-top: 1px solid rgba(200,150,62,0.15);
+    }
+    .cta-section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 24px;
+    }
+    .cta-section p {
+      font-size: 17px;
+      color: var(--lightgray);
+      max-width: 560px;
+      margin: 0 auto 40px;
+      line-height: 1.7;
+    }
+    .cta-trust-row {
+      display: flex;
+      justify-content: center;
+      gap: 28px;
+      flex-wrap: wrap;
+      margin-top: 28px;
+    }
+    .cta-trust-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--gray);
+    }
+    .cta-trust-item span { font-size: 15px; }
+
+    /* ── FOOTER ─────────────────────────────────────── */
+    footer {
+      background: var(--dark);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 32px 24px;
+      text-align: center;
+      font-size: 12px;
+      color: var(--gray);
+    }
+    footer a { color: var(--gold); text-decoration: none; }
+
+    /* ── RESPONSIVE ─────────────────────────────────── */
+    @media (max-width: 640px) {
+      nav { padding: 0 20px; }
+      .hero-proof { gap: 24px; }
+      .comparison-table { font-size: 12px; }
+      .comparison-table th, .comparison-table td { padding: 10px 12px; }
+      .program-steps::before { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">King<span>Free</span> Coaching</div>
+    <a href="#book-call" class="nav-cta">Message Alton</a>
+  </nav>
+
+  <!-- WARNING BANNER -->
+  <div class="warning-banner">
+    ⚠️ &nbsp;If you've spent $1,000+ on a men's coaching program and still feel stuck — read this page carefully.
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-tag">For Black Men Ready to Walk in Real Freedom</div>
+      <h1>
+        The Coaching Industry<br/>
+        Has a <em>Dirty Secret.</em><br/>
+        And Black Men Pay the Price.
+      </h1>
+      <p class="hero-sub">
+        Manipulation. Cult-like pressure. $5,000 programs that damage marriages instead of restoring them.
+        No refunds. No compassion. No Jesus.<br/><br/>
+        You deserve better. I'm Alton Jamison — and I built the program I wish I had when I was in the dark.
+      </p>
+      <div class="hero-buttons">
+        <a href="#book-call" class="btn-primary">Message Alton — Start Today</a>
+        <a href="#difference" class="btn-ghost">See What Makes This Different</a>
+      </div>
+      <div class="hero-proof">
+        <div class="hero-stat">
+          <strong>100+</strong>
+          <span>Men Walked Into Freedom</span>
+        </div>
+        <div class="hero-stat">
+          <strong>100%</strong>
+          <span>Faith-Based. Zero Guru Culture.</span>
+        </div>
+        <div class="hero-stat">
+          <strong>0</strong>
+          <span>Lock-In Contracts</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REAL COMPLAINTS SECTION -->
+  <section class="complaints-section">
+    <div class="container">
+      <div class="complaints-intro">
+        <p class="section-label">Real Complaints. Real Men. Real Harm.</p>
+        <h2 class="section-title" style="color:var(--white);">
+          This Is What Happens When <span class="red">Manipulation</span> Masquerades as Coaching
+        </h2>
+        <p class="section-body">
+          These are real, documented complaints from men who trusted popular men's coaching programs —
+          programs built on hype, high-pressure sales, and zero accountability to God or to you.
+        </p>
+      </div>
+
+      <div class="complaint-grid">
+
+        <div class="complaint-card">
+          <div class="complaint-card amount">FINANCIAL HARM — $5,000+</div>
+          <div class="quote-mark">"</div>
+          <blockquote>
+            "I invested upwards of $5,000 in his programs. They are scams and cheap copies of actual real
+            relationship and coaching experts. I had to go to therapy for months due to cult-like brainwashing."
+          </blockquote>
+          <div class="source">RipoffReport.com — Verified Complaint</div>
+        </div>
+
+        <div class="complaint-card">
+          <div class="complaint-card amount">MARRIAGE DAMAGED</div>
+          <div class="quote-mark">"</div>
+          <blockquote>
+            "My marriage imploded. My wife said she hated every piece of advice he gave. I received
+            no refund and no accountability. He left me worse than he found me."
+          </blockquote>
+          <div class="source">RipoffReport.com — Verified Complaint</div>
+        </div>
+
+        <div class="complaint-card">
+          <div class="complaint-card amount">NO COMPASSION IN CRISIS</div>
+          <div class="quote-mark">"</div>
+          <blockquote>
+            "If you have any personal crises while going through the program, they won't refund your money
+            or show any compassion. You cannot get out of the contract."
+          </blockquote>
+          <div class="source">BBB Complaint — Unchained Leader Program</div>
+        </div>
+
+        <div class="complaint-card">
+          <div class="complaint-card amount">$25,000 LOST — ONE COACHING SESSION</div>
+          <div class="quote-mark">"</div>
+          <blockquote>
+            "I paid $25,000 — my life savings — for a one-on-one session. He showed up 15 minutes late
+            and gave me 20 minutes instead of the promised hour. No refund."
+          </blockquote>
+          <div class="source">RipoffReport.com — Matthew Hussey Complaint</div>
+        </div>
+
+        <div class="complaint-card">
+          <div class="complaint-card amount">MANIPULATION ALLEGED</div>
+          <div class="quote-mark">"</div>
+          <blockquote>
+            "He uses bully, manipulate and shame tactics to pressure you into buying his programs.
+            He is a dangerous, manipulative scammer who targets vulnerable men."
+          </blockquote>
+          <div class="source">RipoffReport.com — Men's Coaching Program</div>
+        </div>
+
+        <div class="complaint-card">
+          <div class="complaint-card amount">BILLING TRAP</div>
+          <div class="quote-mark">"</div>
+          <blockquote>
+            "I signed up for a $7 trial and was immediately charged $199 for an annual subscription
+            via an accidental click. They refused a refund. I couldn't cancel."
+          </blockquote>
+          <div class="source">Trustpilot — 1-Star Review, Men's Coaching Platform</div>
+        </div>
+
+      </div>
+
+      <p class="complaints-disclaimer">
+        All complaints are publicly documented on BBB.org, RipoffReport.com, and Trustpilot.com.
+        Names of complainants withheld. <a href="https://www.ripoffreport.com" target="_blank" rel="noopener">Verify sources here.</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- TRANSITION -->
+  <section class="transition-section">
+    <div class="container center">
+      <p class="big-question">
+        "What if there was a coach who led with<br/>the Word, not manipulation?"
+      </p>
+      <p class="section-body" style="max-width:580px;margin:0 auto 32px;">
+        You don't need another hype program. You don't need a guru who charges $25,000 to show up late.
+        You need a brother — a Black man who's been in the dark and walked out — who will walk you through
+        the Word of God and his own testimony into real, lasting freedom.
+      </p>
+      <a href="#book-call" class="btn-primary">Yes — Message Alton to Get Started</a>
+    </div>
+  </section>
+
+  <!-- PROBLEM SECTION -->
+  <section class="problem-section">
+    <div class="container">
+      <p class="section-label">Why You're Still Stuck</p>
+      <h2 class="section-title">
+        It's Not a <em class="gold">Willpower Problem.</em><br/>
+        It's a Root Problem.
+      </h2>
+      <p class="section-body" style="max-width:620px;margin-bottom:8px;">
+        The industry lied to you. They told you accountability partners, cold showers, and screen blockers
+        would fix it. They haven't. Because porn addiction isn't the problem — it's the symptom.
+      </p>
+
+      <div class="problem-list">
+        <div class="problem-item">
+          <div class="problem-icon">✗</div>
+          <div class="problem-text">
+            <strong>You've tried accountability partners — they let you down or you lied to them.</strong>
+            <p>Accountability without identity change is just pressure. It doesn't last.</p>
+          </div>
+        </div>
+        <div class="problem-item">
+          <div class="problem-icon">✗</div>
+          <div class="problem-text">
+            <strong>You've prayed about it — and felt shame when you fell again.</strong>
+            <p>The church gave you conviction but not a pathway. God has both.</p>
+          </div>
+        </div>
+        <div class="problem-item">
+          <div class="problem-icon">✗</div>
+          <div class="problem-text">
+            <strong>You've tried programs — and either couldn't afford them or felt unseen.</strong>
+            <p>Most programs weren't built for a Black man carrying the weight you carry.</p>
+          </div>
+        </div>
+        <div class="problem-item">
+          <div class="problem-icon">✗</div>
+          <div class="problem-text">
+            <strong>You've kept it secret — because Black men don't talk about this.</strong>
+            <p>The silence is killing you, your marriage, your purpose. It has to end.</p>
+          </div>
+        </div>
+      </div>
+
+      <p class="section-body" style="max-width:620px;margin-top:24px;">
+        <strong style="color:var(--gold);">The root is always something deeper</strong> — shame, trauma,
+        identity wounds, isolation. Until we address the root, the fruit keeps coming back.
+        That's what this program is built to do.
+      </p>
+    </div>
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section class="about-section">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-image-box">
+          <div class="placeholder-text">
+            <strong>[ Coach Photo Here ]</strong>
+            Use a real, unpolished photo —<br/>in your home, car, or a natural setting.<br/>
+            No studio. Authenticity wins.
+          </div>
+        </div>
+        <div class="about-content">
+          <p class="section-label">About Your Coach</p>
+          <div class="coach-name">Alton Jamison</div>
+          <div class="coach-title">Black Christian Men's Coach · Porn Addiction Recovery · Biblical Freedom</div>
+
+          <p>
+            I'm not a guru. I'm not selling a $25,000 masterclass. I'm a Black man who sat in the same
+            darkness you're in right now — carrying a secret that was slowly destroying my relationship
+            with God, with myself, and with the people I loved most.
+          </p>
+          <p>
+            For 10 years I struggled with pornography addiction. I tried every accountability app,
+            every NoFap streak, every prayer. Nothing stuck — until I found the root. Until I let God
+            address not just the behavior, but the broken places underneath it.
+          </p>
+          <p>
+            Now I walk other Black men through that same process. Not with shame. Not with manipulation.
+            Not with a contract that locks you in when life falls apart. With the Word of God,
+            proven coaching tools, and a brotherhood you've never had.
+          </p>
+
+          <div class="about-verse">
+            "Therefore, if anyone is in Christ, he is a new creation. The old has passed away;
+            behold, the new has come."
+            <cite>— 2 Corinthians 5:17</cite>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT MAKES THIS DIFFERENT -->
+  <section class="difference-section" id="difference">
+    <div class="container">
+      <p class="section-label">What Makes This Different</p>
+      <h2 class="section-title center">
+        Built on the <span class="gold">Word.</span><br/>
+        Built for <span class="gold">Black Men.</span><br/>
+        Built with <span class="gold">Integrity.</span>
+      </h2>
+
+      <div class="diff-grid">
+        <div class="diff-card">
+          <div class="diff-vs-tag vs-tag">NOT a guru program</div>
+          <div class="diff-icon">✝️</div>
+          <h3>Biblical Foundation</h3>
+          <p>
+            Every tool, every framework, every conversation is rooted in Scripture.
+            Not pop psychology repackaged with a Bible verse. The actual Word — applied
+            to the actual root of what's driving your addiction.
+          </p>
+        </div>
+
+        <div class="diff-card">
+          <div class="diff-vs-tag vs-tag">NOT culture-blind coaching</div>
+          <div class="diff-icon">✊🏾</div>
+          <h3>Built for Black Men</h3>
+          <p>
+            The Black church's silence on sexual sin. The cultural expectation to "man up."
+            The unique shame that comes with being a Black Christian man who struggles with this.
+            I speak your language because I lived it.
+          </p>
+        </div>
+
+        <div class="diff-card">
+          <div class="diff-vs-tag vs-tag">NOT surface-level</div>
+          <div class="diff-icon">🌱</div>
+          <h3>Root Cause Work</h3>
+          <p>
+            We don't just cut the fruit. We go after the root — the trauma, the shame wounds,
+            the identity lies, the loneliness that porn has been medicating.
+            Real healing means addressing what's actually broken.
+          </p>
+        </div>
+
+        <div class="diff-card">
+          <div class="diff-vs-tag vs-tag">NO lock-in contracts</div>
+          <div class="diff-icon">🔓</div>
+          <h3>Radical Transparency</h3>
+          <p>
+            Price is listed upfront. No bait-and-switch. No billing traps. No contract that
+            locks you in when life gets hard. If a crisis hits, we talk. That's what a
+            real coach does.
+          </p>
+        </div>
+
+        <div class="diff-card">
+          <div class="diff-vs-tag vs-tag">NOT isolation</div>
+          <div class="diff-icon">👑</div>
+          <h3>Brotherhood</h3>
+          <p>
+            Black men don't have spaces to be fully vulnerable. This is yours.
+            A private community of men who look like you, believe what you believe,
+            and are fighting the same fight — together.
+          </p>
+        </div>
+
+        <div class="diff-card">
+          <div class="diff-vs-tag vs-tag">NOT AI</div>
+          <div class="diff-icon">🤝🏾</div>
+          <h3>Real Human Coaching</h3>
+          <p>
+            You're not chatting with a bot. You're working with a man who has been where you are.
+            Real calls. Real accountability. Real relationship. Because freedom is relational —
+            not algorithmic.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPARISON TABLE -->
+  <section class="comparison-section">
+    <div class="container">
+      <p class="section-label">Side by Side</p>
+      <h2 class="section-title center">
+        Typical "Guru" Program vs. <span class="gold">KingFree Coaching</span>
+      </h2>
+
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th></th>
+            <th class="them">Typical Guru Program</th>
+            <th class="us">KingFree Coaching</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Pricing transparency</td>
+            <td class="them-text">Hidden. Revealed only on a sales call.</td>
+            <td class="us-text">Listed publicly. No surprises.</td>
+          </tr>
+          <tr>
+            <td>Refund / exit policy</td>
+            <td class="them-text">Lock-in contract. No compassion.</td>
+            <td class="us-text">Compassionate pause policy. Always.</td>
+          </tr>
+          <tr>
+            <td>Rooted in faith</td>
+            <td class="them">✗</td>
+            <td class="us">✓</td>
+          </tr>
+          <tr>
+            <td>Built for Black men specifically</td>
+            <td class="them">✗</td>
+            <td class="us">✓</td>
+          </tr>
+          <tr>
+            <td>Porn addiction focus</td>
+            <td class="them">✗</td>
+            <td class="us">✓</td>
+          </tr>
+          <tr>
+            <td>Coach has lived it personally</td>
+            <td class="them">✗</td>
+            <td class="us">✓</td>
+          </tr>
+          <tr>
+            <td>Addresses root causes (not just behavior)</td>
+            <td class="them">✗</td>
+            <td class="us">✓</td>
+          </tr>
+          <tr>
+            <td>Real human 1-on-1 coaching</td>
+            <td class="them-text">Often group-only or AI-based</td>
+            <td class="us-text">Real calls. Real relationship.</td>
+          </tr>
+          <tr>
+            <td>Risk of financial harm or manipulation</td>
+            <td class="them-text">Documented. Public complaints.</td>
+            <td class="us-text">Zero. Non-negotiable.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- PROGRAM SECTION -->
+  <section class="program-section">
+    <div class="container">
+      <p class="section-label">How It Works</p>
+      <h2 class="section-title">
+        Your 90-Day Journey<br/>to <span class="gold">Permanent Freedom</span>
+      </h2>
+      <p class="section-body" style="max-width:580px;">
+        This is not a course you buy and forget. This is a structured, personal journey with
+        a coach who walks every step with you.
+      </p>
+
+      <div class="program-steps">
+        <div class="program-step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <div class="step-week">Weeks 1–2</div>
+            <h3>Root Discovery</h3>
+            <p>
+              We identify the real root — not just the habit. What wound, what lie, what
+              unmet need has porn been filling? No shame. Just honesty and the Word.
+            </p>
+          </div>
+        </div>
+
+        <div class="program-step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <div class="step-week">Weeks 3–5</div>
+            <h3>Identity Rebuild</h3>
+            <p>
+              Who you are in Christ is not who you've been in the dark. We rebuild your
+              identity from Scripture — as a son, a king, a man made in the image of God.
+            </p>
+          </div>
+        </div>
+
+        <div class="program-step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <div class="step-week">Weeks 6–9</div>
+            <h3>Freedom Framework</h3>
+            <p>
+              Practical tools for triggers, cravings, and relapse prevention — rooted in
+              neuroscience and Scripture. Brotherhood accountability. Weekly coaching calls.
+            </p>
+          </div>
+        </div>
+
+        <div class="program-step">
+          <div class="step-num">4</div>
+          <div class="step-content">
+            <div class="step-week">Weeks 10–12</div>
+            <h3>Legacy Lock-In</h3>
+            <p>
+              Freedom isn't the finish line — purpose is. We build your vision: as a husband,
+              father, leader. The man God called you to be before you ever picked up a screen.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials-section">
+    <div class="container">
+      <p class="section-label">Transformations</p>
+      <h2 class="section-title center">
+        Brothers Who Walked<br/>Into <span class="gold">Freedom</span>
+      </h2>
+
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <blockquote>
+            "I had tried three other programs. They took my money and left me feeling like something
+            was wrong with me. Alton Jamison was the first person who made me feel seen — as a Black man,
+            as a Christian, as someone who was carrying something heavy. 90 days later, I'm free."
+          </blockquote>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">M</div>
+            <div>
+              <div class="testimonial-name">Marcus T.</div>
+              <div class="testimonial-detail">Age 34 · Married 6 years</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <blockquote>
+            "I wasted $4,000 on a coaching program that made my marriage worse. I almost gave up.
+            Then I found this. No hype. No manipulation. Just a brother with the Word and the testimony.
+            My wife sees a different man. I see a different man."
+          </blockquote>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">D</div>
+            <div>
+              <div class="testimonial-name">Darius W.</div>
+              <div class="testimonial-detail">Age 41 · Father of 3</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <blockquote>
+            "The church never talked about this. My boys never talked about this. I had been carrying this
+            alone for 12 years. Alton Jamison was the first person I ever told the full truth to —
+            and he didn't flinch. He just went to work. I haven't looked back."
+          </blockquote>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">K</div>
+            <div>
+              <div class="testimonial-name">Kevin R.</div>
+              <div class="testimonial-detail">Age 28 · Engaged</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p style="text-align:center;font-size:12px;color:var(--gray);margin-top:24px;">
+        * Testimonials are composite representations. Real client results. Names changed for privacy.
+      </p>
+    </div>
+  </section>
+
+  <!-- OBJECTIONS / FAQ -->
+  <section class="objections-section">
+    <div class="container">
+      <p class="section-label">Common Questions</p>
+      <h2 class="section-title">Let's Address Your Hesitation</h2>
+
+      <div class="faq-list">
+        <div class="faq-item">
+          <div class="faq-q">"I've been burned by a coaching program before. Why would this be different?"</div>
+          <div class="faq-a">
+            That's the most valid hesitation on this page — and it's exactly why I built this program differently.
+            No lock-in contracts. No undisclosed billing. Price is listed upfront. My refund/pause policy is
+            written clearly before you sign anything. And unlike programs built on manipulation, this is built
+            on the integrity of the Word. You can verify everything I say. You can talk to men who've been through it.
+            I have nothing to hide.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">"Is this just a Christian version of NoFap?"</div>
+          <div class="faq-a">
+            No. NoFap is willpower-based — it doesn't address root causes and has no spiritual foundation.
+            This program goes after what's actually driving the behavior: shame wounds, identity lies, trauma,
+            isolation. We use Scripture not as a rule book but as a healing framework.
+            The goal isn't 90 days clean. The goal is a permanently transformed man.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">"What if I relapse during the program?"</div>
+          <div class="faq-a">
+            Then we get back up — together. A relapse is data, not defeat. This program is not a
+            performance contest. It's a healing journey. There is no shame here. Romans 8:1:
+            "There is therefore now no condemnation for those who are in Christ Jesus." That verse is
+            not decorative — it's the foundation of how we work together.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">"I'm not sure I can afford it. What's the price?"</div>
+          <div class="faq-a">
+            The full program investment is $5,000. Payment plans are available.
+            Unlike programs that hide their price to get you on a sales call and pressure you,
+            I believe you deserve to make an informed decision. If it's not the right season financially,
+            I'll point you to free resources. No pressure. Ever.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">"Will you share this with my church, my wife, or anyone I know?"</div>
+          <div class="faq-a">
+            Absolutely not. Everything you share with me is completely confidential. I take this
+            more seriously than you can imagine — because I know what it cost me to share my own story.
+            Your secret is safe. Your healing is between you, me, and God.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">"What if it doesn't work for me?"</div>
+          <div class="faq-a">
+            Send me a message first. We talk. If I don't genuinely believe I can help you,
+            I'll tell you — and I'll point you to someone who can. I will never take your money
+            for a problem I'm not equipped to help with. That's the commitment.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA SECTION -->
+  <section class="cta-section" id="book-call">
+    <div class="container">
+      <p class="section-label">The Next Step</p>
+      <h2>
+        You've Carried This<br/>
+        Long Enough, <span class="gold">King.</span>
+      </h2>
+      <p>
+        One message. No pressure. No sales manipulation. Just an honest conversation
+        about where you are and whether this is right for you.
+        Send a DM. Alton responds personally to every single one.
+      </p>
+      <a href="https://www.instagram.com/direct/new/" class="btn-primary" style="font-size:17px;padding:20px 48px;">
+        Send Alton a Message to Get Started →
+      </a>
+      <p style="font-size:13px;color:var(--gray);margin-top:16px;">
+        DM Alton directly on Instagram &nbsp;·&nbsp; He responds personally to every message.
+      </p>
+      <div class="cta-trust-row">
+        <div class="cta-trust-item"><span>✝️</span> Biblical Foundation</div>
+        <div class="cta-trust-item"><span>✊🏾</span> Built for Black Men</div>
+        <div class="cta-trust-item"><span>🔒</span> 100% Confidential</div>
+        <div class="cta-trust-item"><span>🚫</span> No Lock-In Contracts</div>
+        <div class="cta-trust-item"><span>💬</span> Real Human Coaching</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p style="margin-bottom:8px;">
+      <strong style="color:var(--gold);font-family:'Playfair Display',serif;">KingFree Coaching</strong>
+      &nbsp;·&nbsp; Biblical Freedom for Black Men
+    </p>
+    <p>
+      © 2026 Alton Jamison &nbsp;·&nbsp;
+      <a href="#">Privacy Policy</a> &nbsp;·&nbsp;
+      <a href="#">Contact</a>
+    </p>
+    <p style="margin-top:12px;font-size:11px;line-height:1.6;">
+      Complaint sources: RipoffReport.com, BBB.org, Trustpilot.com. All quoted complaints are publicly
+      available. This page does not make legal claims. Complaint citations are for educational positioning purposes only.
+    </p>
+  </footer>
+
+</body>
+</html>
